@@ -31,6 +31,13 @@ android {
   kotlinOptions {
     jvmTarget = '1.8'
   }
+
+  applicationVariants.configureEach { variant ->
+    def testValue = ''
+
+    variant.buildConfigField 'String', 'testValueBefore4_1_a9', "\"$testValue\""
+    variant.buildConfigField 'String', 'testValueAfter4_1_a9', "$testValue"
+  }
 }
 
 dependencies {
